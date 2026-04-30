@@ -1,334 +1,1230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Yousef Abdelsalam</title>
-  </head>
-  <body>
-    <header>
-      <a href="#main" class="logo">Yousef</a>
-      <nav class="navigation">
-        <a href="#Services">Services</a>
-        <a href="#Projects">Projects</a>
-        <a href="#Contact">Contact</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Yousef Abdelsalam — Back-End Developer</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-2: #111118;
+      --bg-card: #16161f;
+      --bg-card-hover: #1c1c28;
+      --accent: #3a6cf4;
+      --accent-2: #5b87ff;
+      --accent-glow: rgba(58, 108, 244, 0.15);
+      --text: #e8e8f0;
+      --text-muted: #7a7a95;
+      --text-dim: #4a4a60;
+      --border: rgba(255,255,255,0.07);
+      --border-accent: rgba(58, 108, 244, 0.3);
+      --green: #22c55e;
+      --font: 'Space Grotesk', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
 
-    <section class="main" id="main">
-      <div>
-        <h2>
-          Hello, I'm Yousef Abdelsalam <br />
-          <span>Back-end web developer</span>
-        </h2>
-        <h3>
-          I specialize in creating robust and efficient APIs for websites, <br />
-          mobile applications, and dashboards using PHP and Laravel framework.
-          
-        </h3>
-        <div class="tech-stack-icons">
-          <p>Tech Stack :</p>
-          <img src="images/icons/icons8-php-64.png" alt="php" />
-          <img
-          src="images/icons/icons8-laravel-48.png"
-          alt="Laravel"
-        />
-        <img src="./images/icons/icons8-database-50.png" alt="sql">
-        <img src="images/icons/icons8-js-48.png" alt="js" />
-          <img src="images/icons/icons8-html-48.png" alt="html" />
-          <img src="images/icons/icons8-css-48.png" alt="css" />
-       
-          <img src="images/icons/icons8-bootstrap-48.png" alt="bootstrap" />
-   
-        </div>
-        <a
-          class="main-btn"
-          href="YousfeAbdelsalamCV(BackEnd Developer).pdf"
-          download="YousfeAbdelsalamCV(BackEnd Developer).pdf"
-          >Download CV</a
-        >
-        <div class="social-icons">
-          <a
-            href="https://www.linkedin.com/in/yousef-abdelsalam-8b0b1820b"
-            target="_blank"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
-          <a href="https://github.com/3absy1" target="_blank"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-          <a href="tel:201224888722"><i class="fas fa-phone"></i></a>
-          <a href="mailto:yossfeabdaslm123@gmail.com"
-            ><i class="fas fa-envelope"></i
-          ></a>
-        </div>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 6%;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent); }
+
+    nav { display: flex; align-items: center; gap: 2.5rem; }
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.2s;
+    }
+    nav a:hover { color: var(--text); }
+    nav a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.85rem !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent-2) !important; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 6% 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(58,108,244,0.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 40% at 20% 80%, rgba(91,135,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+      opacity: 0.4;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 750px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-2);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero h1 .name { color: var(--text); }
+    .hero h1 .role {
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-stack {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.25s ease both;
+    }
+    .hero-stack-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-right: 0.25rem;
+    }
+    .stack-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .stack-pill:hover { border-color: var(--border-accent); color: var(--accent-2); }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--accent-2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(58,108,244,0.35);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--border-accent); color: var(--text); transform: translateY(-2px); }
+
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      animation: fadeUp 0.6s 0.35s ease both;
+    }
+    .social-row a {
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .social-row a:hover { border-color: var(--border-accent); color: var(--accent-2); transform: translateY(-3px); }
+
+    /* STATS BAR */
+    .stats-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-2);
+      padding: 2rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-family: var(--mono);
+    }
+
+    /* SECTION BASE */
+    section { padding: 6rem 6%; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 500px;
+      margin-bottom: 3.5rem;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    #Services { background: var(--bg-2); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .service-card:hover { border-color: var(--border-accent); transform: translateY(-4px); background: var(--bg-card-hover); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 48px; height: 48px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* EXPERIENCE */
+    #Experience { background: var(--bg); }
+    .exp-timeline { max-width: 750px; }
+    .exp-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .exp-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 38px;
+      bottom: -2rem;
+      width: 1px;
+      background: var(--border);
+    }
+    .exp-dot {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+    .exp-dot.current { background: var(--accent-glow); }
+    .exp-body {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      flex: 1;
+      transition: border-color 0.2s;
+    }
+    .exp-body:hover { border-color: var(--border-accent); }
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .exp-company {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .exp-badge {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: var(--accent-glow);
+      color: var(--accent-2);
+      border: 1px solid var(--border-accent);
+    }
+    .exp-badge.freelance { background: rgba(34,197,94,0.1); color: var(--green); border-color: rgba(34,197,94,0.3); }
+    .exp-role { font-size: 0.85rem; color: var(--accent-2); font-weight: 500; margin-bottom: 0.3rem; }
+    .exp-dates { font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); }
+
+    /* PROJECTS */
+    #Projects { background: var(--bg-2); }
+    .projects-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--border-accent);
+      color: var(--accent-2);
+      background: var(--accent-glow);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-accent);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-img-placeholder {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-img-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(58,108,244,0.2), transparent 70%);
+    }
+
+    .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+
+    .project-type {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .project-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(58,108,244,0.08);
+      border: 1px solid rgba(58,108,244,0.2);
+      color: var(--text-muted);
+    }
+    .project-links { display: flex; gap: 0.75rem; }
+    .proj-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .proj-link:hover { color: var(--accent-2); border-color: var(--border-accent); }
+    .proj-link.live {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .proj-link.live:hover { background: var(--accent-2); border-color: var(--accent-2); }
+
+    /* SKILLS */
+    #Skills { background: var(--bg); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-item {
+      font-size: 0.82rem;
+      font-family: var(--mono);
+      color: var(--text-muted);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .skill-item:hover { color: var(--accent-2); border-color: var(--border-accent); }
+
+    /* CONTACT */
+    #Contact {
+      background: var(--bg-2);
+      text-align: center;
+    }
+    #Contact .section-desc { margin: 0 auto 3rem; }
+    .contact-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-card {
+      flex: 1;
+      min-width: 200px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .contact-card:hover { border-color: var(--border-accent); transform: translateY(-3px); }
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-info h4 { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+    .contact-info p { font-size: 0.9rem; color: var(--text); font-weight: 600; }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p { font-size: 0.85rem; color: var(--text-dim); font-family: var(--mono); }
+    footer p span { color: var(--accent); }
+    .footer-social { display: flex; gap: 0.75rem; }
+    .footer-social a {
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .footer-social a:hover { border-color: var(--border-accent); color: var(--accent-2); }
+
+    /* MOBILE NAV */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text-muted);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      header { padding: 1rem 5%; }
+      section { padding: 4.5rem 5%; }
+      nav { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(10,10,15,0.98); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); }
+      nav.open { display: flex; }
+      nav a { font-size: 1rem; }
+      .nav-toggle { display: flex; }
+      .hero { padding: 7rem 5% 4rem; }
+      .stats-bar { gap: 2rem; padding: 1.5rem 5%; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero-desc { font-size: 0.95rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .stats-bar { gap: 1.5rem; }
+      .stat-num { font-size: 1.6rem; }
+      footer { flex-direction: column; text-align: center; }
+      .contact-grid { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#main" class="logo">&lt;<span>yousef</span> /&gt;</a>
+    <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
+      <a href="#Services">Services</a>
+      <a href="#Experience">Experience</a>
+      <a href="#Projects">Projects</a>
+      <a href="#Skills">Skills</a>
+      <a href="#Contact">Contact</a>
+      <a href="YousfeAbdelsalamCV(BackEnd Developer).pdf" download class="nav-cta"><i class="fas fa-download"></i> Resume</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="main" id="main">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Available for new opportunities
       </div>
-    </section>
-
-    <section class="cards" id="Services">
-      <h2 class="title">Services</h2>
-
-      <div class="content">
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-cogs"></i>
-          </div>
-
-          <div class="info">
-            <h3>API Development and Integration</h3>
-            <p>
-              Crafting robust RESTful APIs that seamlessly connect your frontend to powerful backend systems.
-              I specialize in developing APIs for websites and mobile applications, ensuring smooth data exchange,
-                security, and performance.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-tachometer-alt"></i>
-          </div>
-
-          <div class="info">
-            <h3>Dashboard Development and Management</h3>
-            <p>
-              Building and managing comprehensive dashboards tailored to your business needs. From data visualization to user management, 
-              I provide backend solutions that are both efficient and scalable, making your operations easier to monitor and control.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-
-          <div class="info">
-            <h3>Backend Logic and Security Enhancement</h3>
-            <p>
-              Implementing intricate backend logic and enhancing security measures for your applications. I focus on optimizing database queries,
-              ensuring data integrity, and integrating third-party services, while keeping your systems secure and reliable.
-            </p>
-          </div>
-        </div>
+      <h1>
+        <span class="name">Yousef Abdelsalam</span>
+        <span class="role">Back-End Developer</span>
+      </h1>
+      <p class="hero-desc">
+        Crafting scalable APIs, real-time systems, and admin dashboards using PHP &amp; Laravel. 2.5+ years building production apps across mobile, e-commerce, and SaaS domains.
+      </p>
+      <div class="hero-stack">
+        <span class="hero-stack-label">// stack</span>
+        <span class="stack-pill">PHP</span>
+        <span class="stack-pill">Laravel</span>
+        <span class="stack-pill">MySQL</span>
+        <span class="stack-pill">Firebase</span>
+        <span class="stack-pill">REST APIs</span>
+        <span class="stack-pill">Livewire</span>
       </div>
-    </section>
-
-    <section id="Projects" class="projects">
-      <h2 class="title">Projects</h2>
-      <div class="content">
-
-
-        <div class="project-card">
-          <img src="./images/mapping.png" loading="lazy" alt="flex img" />
-          <div class="info">
-            <h4 class="project-name">Mapping Tool</h4>
-            <p class="description">
-              Comprehensive Mapping Tool 🗺️🔍 Developed a robust mapping tool to manage references and related terms, validate data through Excel imports, and dynamically merge data.
-            </p>
-            <ul class="tech-stack">
-              <li class="tech-card">PHP</li>
-              <li class="tech-card">Laravel</li>
-              <li class="tech-card">JS</li>
-              <li class="tech-card">HTML / CSS</li>
-
-            </ul>
-            <div class="project-links">
-              <a
-                href="https://github.com/3absy1/Mapping_tool"
-                target="_blank"
-                >Code <i class="fa-brands fa-github"></i
-              ></a>
-              <!-- <a href="https://Yousef-flex.netlify.app/" target="_blank"
-                >Live Demo <i class="fa-solid fa-up-right-from-square"></i
-              ></a> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="./images/Quiz.png" loading="lazy" alt="tetris img" />
-          <div class="info">
-            <h4 class="project-name">Quiz App</h4>
-            <p class="description">
-              📚📝A web application for creating and managing quizzes. Teachers can create quizzes, send quiz links to students, view all quizzes, see students' Grades, and edit quizzes. 
-              Students can log in to take quiz . The app also includes an admin dashboard
-            </p>
-            <ul class="tech-stack">
-              <li class="tech-card">PHP</li>
-              <li class="tech-card">Laravel</li>
-              <li class="tech-card">JS / JQuery</li>
-              <!-- <li class="tech-card">HTML / CSS</li> -->
-            </ul>
-            <div class="project-links">
-              <a
-                href="https://github.com/3absy1/quiz_app"
-                target="_blank"
-                >Code <i class="fa-brands fa-github"></i
-              ></a>
-              <!-- <a href="https://Yousef-tetrisgame.netlify.app/" target="_blank"
-                >Live Demo <i class="fa-solid fa-up-right-from-square"></i
-              ></a> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="./images/chat.png" loading="lazy" alt="" />
-          <div class="info">
-            <h4 class="project-name">Chat App</h4>
-            <p class="description">
-              A web application 🌐💬 enabling two users to chat together and send attachments seamlessly.
-              Developed to provide a reliable and user-friendly communication platform with real-time messaging and file-sharing capabilities.
-            </p>
-            <ul class="tech-stack">
-              <li class="tech-card">PHP</li>
-              <li class="tech-card">Laravel</li>
-              <li class="tech-card">Pusher</li>
-              <li class="tech-card">JS</li>
-            </ul>
-            <div class="project-links">
-              <a
-                href="https://github.com/3absy1/ChatApp"
-                target="_blank"
-                >Code <i class="fa-brands fa-github"></i
-              ></a>
-              <!-- <a href="https://Yousef-ip-tracker.netlify.app/" target="_blank"
-                >Live Demo <i class="fa-solid fa-up-right-from-square"></i
-              ></a> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="./images/School.png" loading="lazy" alt="" />
-          <div class="info">
-            <h4 class="project-name">School Management System</h4>
-            <p class="description">
-              School Management Website 🏫💻 A comprehensive website to manage students, parents, teachers, and admins.
-            </p>
-            <ul class="tech-stack">
-              <li class="tech-card">PHP</li>
-              <li class="tech-card">Laravel</li>
-              <li class="tech-card">LiveWire</li>
-              <li class="tech-card">HTML / CSS</li>
-              <li class="tech-card">JS</li>
-            </ul>
-            <div class="project-links">
-              <a href="https://github.com/3absy1/school-management-system" target="_blank"
-                >Code <i class="fa-brands fa-github"></i
-              ></a>
-              <!-- <a href="https://Yousef-movies.netlify.app/" target="_blank"
-                >Live Demo <i class="fa-solid fa-up-right-from-square"></i
-              ></a> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="./images/perfume2.png" loading="lazy" alt="flex img" />
-          <div class="info">
-            <h4 class="project-name">Perfume App</h4>
-            <p class="description">
-              Perfume Order Mobile App 🌸📱 A mobile application for ordering perfumes online, available on both Android and iOS platforms.            </p>
-            <ul class="tech-stack">
-              <li class="tech-card">PHP</li>
-              <li class="tech-card">Laravel</li>
-            </ul>
-            <div class="project-links">
-              <a
-                href="https://github.com/3absy1/Perfume_app"
-                target="_blank"
-                >Code <i class="fa-brands fa-github"></i
-              ></a>
-              <!-- <a href="https://vue-notes-app.vercel.app/" target="_blank"
-                >Live Demo <i class="fa-solid fa-up-right-from-square"></i
-              ></a> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="./images/FoodClub.png" loading="lazy" alt="flex img" />
-          <div class="info">
-            <h4 class="project-name">Food Club</h4>
-            <p class="description">
-              Food Ordering Website 🍔🍕 A website for ordering food, similar to Talabat.            
-            </p>
-            <ul class="tech-stack">
-              <li class="tech-card">HTML / CSS</li>
-              <li class="tech-card">JS</li>
-              <li class="tech-card">FireBase</li>
-            </ul>
-            <div class="project-links">
-              <a
-                href="https://github.com/3absy1/Food_Club"
-                target="_blank"
-                >Code <i class="fa-brands fa-github"></i
-              ></a>
-              <!-- <a href="https://react-clock-lime.vercel.app/" target="_blank"
-                >Live Demo <i class="fa-solid fa-up-right-from-square"></i
-              ></a> -->
-            </div>
-          </div>
-        </div>
-
+      <div class="hero-actions">
+        <a href="#Projects" class="btn-primary"><i class="fas fa-code"></i> View Projects</a>
+        <a href="YousfeAbdelsalamCV(BackEnd Developer).pdf" download class="btn-outline"><i class="fas fa-download"></i> Download CV</a>
       </div>
-    </section>
-
-    <section class="cards contacts" id="Contact">
-      <h2 class="title">Let's work together</h2>
-      <div class="content">
-        <a href="tel:201003295446"
-          ><div class="card">
-            <div class="icon">
-              <i class="fas fa-phone"></i>
-            </div>
-
-            <div class="info">
-              <h3>Phone</h3>
-              <p>+201224888722</p>
-            </div>
-          </div></a
-        >
-
-        <a href="mailto:yossfeabdaslm123@gmail.com">
-          <div class="card">
-            <div class="icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-
-            <div class="info">
-              <h3>Email</h3>
-              <p>yossfeabdaslm123@gmail.com</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-    <footer>
-      <p>Copyrights @ <span>Yousef Abdelsalam</span></p>
-      <div class="social-icons">
-        <a
-          href="https://www.linkedin.com/in/yousef-abdelsalam-8b0b1820b"
-          target="_blank"
-          ><i class="fa-brands fa-linkedin"></i
-        ></a>
-        <a href="https://github.com/3absy1" target="_blank"
-          ><i class="fa-brands fa-github"></i
-        ></a>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/yousef-abdelsalam-8b0b1820b" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/3absy1" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="tel:201224888722"><i class="fas fa-phone"></i></a>
-        <a href="mailto:yossfeabdaslm123@gmail.com"
-          ><i class="fas fa-envelope"></i
-        ></a>
+        <a href="mailto:yossfeabdaslm123@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
-    </footer>
-  </body>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">2.5<span>+</span></div>
+      <div class="stat-label">years experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10<span>+</span></div>
+      <div class="stat-label">projects shipped</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5<span>+</span></div>
+      <div class="stat-label">companies worked</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4<span>+</span></div>
+      <div class="stat-label">live mobile apps</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="Services">
+    <div class="section-label">// what I do</div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-desc">Building the foundation that powers great products — clean, scalable, and secure.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <h3>API Development &amp; Integration</h3>
+        <p>Crafting robust RESTful APIs that connect frontends to powerful backend systems — optimized for mobile (iOS/Android) and web applications with clean documentation.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <h3>Dashboard Development</h3>
+        <p>Building comprehensive admin dashboards using Filament, AdminEncore, and Blade — from user management to real-time analytics tailored to your business operations.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Backend Architecture &amp; Security</h3>
+        <p>Designing scalable system architecture following SOLID principles and MVC patterns. Database optimization, auth with Sanctum/Spatie, and secure third-party integrations.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Real-Time Features</h3>
+        <p>Implementing live tracking, push notifications, and real-time data sync using Firebase — as seen in ride-hailing and home-service apps with live driver mapping.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="Experience">
+    <div class="section-label">// where I've worked</div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-desc">From startups to product companies — building real systems used by real people.</p>
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal">
+        <div class="exp-dot current"><i class="fas fa-circle"></i></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <span class="exp-company">evyX</span>
+            <span class="exp-badge">Full-time</span>
+          </div>
+          <div class="exp-role">Back-End Web Developer</div>
+          <div class="exp-dates">Oct 2025 – Present · Cairo, Egypt · On-site</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot"><i class="fas fa-code"></i></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <span class="exp-company">ApexMind</span>
+            <span class="exp-badge">Part-time</span>
+          </div>
+          <div class="exp-role">Back-End Web Developer</div>
+          <div class="exp-dates">Aug 2024 – Present · Cairo, Egypt · Remote</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot"><i class="fas fa-code"></i></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <span class="exp-company">ClintTrip</span>
+            <span class="exp-badge">Full-time</span>
+          </div>
+          <div class="exp-role">Back-End Web Developer</div>
+          <div class="exp-dates">Sep 2024 – Sep 2025 · Saudi Arabia · Remote</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot"><i class="fas fa-code"></i></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <span class="exp-company">Moosavic</span>
+            <span class="exp-badge">Full-time</span>
+          </div>
+          <div class="exp-role">Back-End Web Developer</div>
+          <div class="exp-dates">Feb 2025 – Jul 2025 · Cairo, Egypt · Remote</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot"><i class="fas fa-code"></i></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <span class="exp-company">Hossam X Studios</span>
+            <span class="exp-badge">Full-time</span>
+          </div>
+          <div class="exp-role">Back-End Web Developer</div>
+          <div class="exp-dates">Feb 2024 – Apr 2024 · Cairo, Egypt · On-site</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot"><i class="fas fa-laptop-code"></i></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <span class="exp-company">Freelance</span>
+            <span class="exp-badge freelance">Freelance</span>
+          </div>
+          <div class="exp-role">Backend Developer — CRM systems, e-commerce backends, client projects</div>
+          <div class="exp-dates">2022 – Present</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="Projects">
+    <div class="section-label">// what I've built</div>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-desc">Real applications across mobile, web, and SaaS — from on-demand services to AI-powered platforms.</p>
+
+    <div class="projects-filter">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('mobile', this)">Mobile Apps</button>
+      <button class="filter-btn" onclick="filterProjects('web', this)">Web Platforms</button>
+      <button class="filter-btn" onclick="filterProjects('opensource', this)">Open Source</button>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- HULK -->
+      <div class="project-card reveal" data-cat="mobile">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#1a1200,#2a1f00);">
+          <img src="./images/hulk-logo.png" alt="Hulk" style="width:80px;height:80px;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML+='🔧'" />
+        </div>
+        <div class="project-body">
+          <div class="project-type">Mobile · Home Services</div>
+          <div class="project-name">Hulk — Home Services App</div>
+          <p class="project-desc">On-demand booking platform for cleaning, plumbing, AC, and electrical services. Features live driver tracking, Firebase push notifications, and a full admin dashboard.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">RESTful API</span><span class="tag">MySQL</span><span class="tag">Firebase</span><span class="tag">Blade</span>
+          </div>
+          <div class="project-links">
+            <a href="https://play.google.com/store/apps/details?id=com.evyx.hulk" target="_blank" class="proj-link live"><i class="fab fa-google-play"></i> Play Store</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MA3AK -->
+      <div class="project-card reveal" data-cat="mobile">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#000d1a,#001a2e);">
+          <span style="font-size:2.5rem">🚗</span>
+        </div>
+        <div class="project-body">
+          <div class="project-type">Mobile · Ride-Hailing</div>
+          <div class="project-name">Ma3ak — Ride-Hailing Platform</div>
+          <p class="project-desc">Uber-style platform with real-time driver matching, live map tracking, and trip scheduling. Built complete backend and APIs for seamless iOS/Android integration.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">RESTful API</span><span class="tag">MySQL</span><span class="tag">Firebase</span>
+          </div>
+          <div class="project-links">
+            <a href="https://play.google.com/store/apps/details?id=com.rabta.evyx" target="_blank" class="proj-link live"><i class="fab fa-google-play"></i> Play Store</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMO -->
+      <div class="project-card reveal" data-cat="mobile">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#0d0020,#1a003a);">
+          <img src="./images/smo-logo.png" alt="Smo" style="width:80px;height:80px;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML+='💬'" />
+        </div>
+        <div class="project-body">
+          <div class="project-type">Mobile · Social Chat</div>
+          <div class="project-name">Smo — Real-Time Chat App</div>
+          <p class="project-desc">Room-based social chat application with in-app payments, admin transaction management, and live messaging. Fully built backend with AdminEncore dashboard.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">AdminEncore</span><span class="tag">Blade</span><span class="tag">RESTful API</span><span class="tag">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://play.google.com/store/apps/details?id=com.smolive.chat" target="_blank" class="proj-link live"><i class="fab fa-google-play"></i> Play Store</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIBBI -->
+      <div class="project-card reveal" data-cat="mobile">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#001a10,#002e1a);">
+          <img src="./images/tibbi-logo.png" alt="Tibbi" style="width:100px;height:60px;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML+='🏥'" />
+        </div>
+        <div class="project-body">
+          <div class="project-type">Mobile · Healthcare</div>
+          <div class="project-name">Tibbi — Medical App</div>
+          <p class="project-desc">Backend APIs and complete system management for a medical services mobile application. Designed for reliability and secure patient data handling.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">RESTful API</span><span class="tag">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://play.google.com/store/apps/details?id=com.tebbi.evyx" target="_blank" class="proj-link live"><i class="fab fa-google-play"></i> Play Store</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RATECV -->
+      <div class="project-card reveal" data-cat="web">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#0a0018,#18003a);">
+          <span style="font-size:2.5rem">🤖</span>
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web · AI Platform</div>
+          <div class="project-name">RateCV — AI-Powered CV Platform</div>
+          <p class="project-desc">Engineered backend for an AI-driven resume evaluation and career coaching platform. Integrates Python AI models with a Laravel backend and Sanctum auth.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Sanctum</span>
+          </div>
+          <div class="project-links">
+            <a href="https://ratecv.com/" target="_blank" class="proj-link live"><i class="fas fa-external-link-alt"></i> Live Site</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TLAQI -->
+      <div class="project-card reveal" data-cat="web">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#001520,#002540);">
+          <span style="font-size:2.5rem">🤝</span>
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web · Startup Platform</div>
+          <div class="project-name">Tlaqi — Startup &amp; Investment Matchmaking</div>
+          <p class="project-desc">Platform connecting startups with investors — role-based access control, project submissions, and secure API layer for the Saudi market.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">RESTful API</span><span class="tag">Sanctum</span>
+          </div>
+          <div class="project-links">
+            <a href="https://tlaqi.sa/" target="_blank" class="proj-link live"><i class="fas fa-external-link-alt"></i> Live Site</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAPPING TOOL -->
+      <div class="project-card reveal" data-cat="opensource">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#0a1000,#162000);">
+          <img src="./images/mapping.png" alt="Mapping Tool" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0.5;" onerror="this.remove()" />
+          <span style="font-size:2.5rem;position:relative;">🗺️</span>
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web · Data Management</div>
+          <div class="project-name">Mapping Tool</div>
+          <p class="project-desc">Excel import validation, reference management, and dynamic data merging. Handles complex data mapping logic with real-time table updates via Yajra Datatables.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">Yajra</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/3absy1/Mapping_tool" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCHOOL -->
+      <div class="project-card reveal" data-cat="opensource">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#001018,#001e2e);">
+          <img src="./images/School.png" alt="School" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0.5;" onerror="this.remove()" />
+          <span style="font-size:2.5rem;position:relative;">🏫</span>
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web · EdTech</div>
+          <div class="project-name">School Management System</div>
+          <p class="project-desc">Multi-role platform for students, teachers, parents, and admins — exam creation, attendance tracking, multi-language support via Spatie Translatable.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">Livewire</span><span class="tag">MySQL</span><span class="tag">Spatie</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/3absy1/school-management-system" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ APP -->
+      <div class="project-card reveal" data-cat="opensource">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg,#100010,#200020);">
+          <img src="./images/Quiz.png" alt="Quiz" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0.5;" onerror="this.remove()" />
+          <span style="font-size:2.5rem;position:relative;">📝</span>
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web · Education</div>
+          <div class="project-name">Quiz App</div>
+          <p class="project-desc">Web application for creating and managing quizzes. Teachers create and share quiz links; students take quizzes and view grades. Includes full admin dashboard.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">jQuery</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/3absy1/quiz_app" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="Skills">
+    <div class="section-label">// technical skills</div>
+    <h2 class="section-title">Skills</h2>
+    <p class="section-desc">Tools and technologies I use to build production-ready systems.</p>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-list">
+          <span class="skill-item">PHP</span>
+          <span class="skill-item">JavaScript</span>
+          <span class="skill-item">HTML</span>
+          <span class="skill-item">CSS</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Frameworks</div>
+        <div class="skill-list">
+          <span class="skill-item">Laravel</span>
+          <span class="skill-item">Livewire</span>
+          <span class="skill-item">Filament</span>
+          <span class="skill-item">Bootstrap</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">APIs &amp; Architecture</div>
+        <div class="skill-list">
+          <span class="skill-item">RESTful APIs</span>
+          <span class="skill-item">OOP</span>
+          <span class="skill-item">MVC</span>
+          <span class="skill-item">SOLID</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Database</div>
+        <div class="skill-list">
+          <span class="skill-item">MySQL</span>
+          <span class="skill-item">Query Optimization</span>
+          <span class="skill-item">DB Design</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Real-Time &amp; Services</div>
+        <div class="skill-list">
+          <span class="skill-item">Firebase</span>
+          <span class="skill-item">Push Notifications</span>
+          <span class="skill-item">Live Tracking</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Tools &amp; Packages</div>
+        <div class="skill-list">
+          <span class="skill-item">Git</span>
+          <span class="skill-item">Postman</span>
+          <span class="skill-item">Linux</span>
+          <span class="skill-item">Sanctum</span>
+          <span class="skill-item">Spatie</span>
+          <span class="skill-item">Yajra</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="Contact">
+    <div class="section-label">// get in touch</div>
+    <h2 class="section-title">Let's work together</h2>
+    <p class="section-desc">Have a project in mind? I'm open to full-time roles, freelance projects, and collaborations.</p>
+    <div class="contact-grid">
+      <a href="tel:201224888722" class="contact-card">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div class="contact-info">
+          <h4>Phone</h4>
+          <p>+20 122 488 8722</p>
+        </div>
+      </a>
+      <a href="mailto:yossfeabdaslm123@gmail.com" class="contact-card">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-info">
+          <h4>Email</h4>
+          <p>yossfeabdaslm123@gmail.com</p>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/yousef-abdelsalam-8b0b1820b" target="_blank" class="contact-card">
+        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+        <div class="contact-info">
+          <h4>LinkedIn</h4>
+          <p>yousef-abdelsalam</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Copyrights &copy; 2025 — <span>Yousef Abdelsalam</span></p>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/yousef-abdelsalam-8b0b1820b" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/3absy1" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="tel:201224888722"><i class="fas fa-phone"></i></a>
+      <a href="mailto:yossfeabdaslm123@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => obs.observe(el));
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a:not(.nav-cta)');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent-2)' : '';
+      });
+    });
+
+    // Project filter
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.project-card').forEach(card => {
+        const show = cat === 'all' || card.dataset.cat === cat;
+        card.style.display = show ? 'flex' : 'none';
+      });
+    }
+
+    // Close mobile nav on link click
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', () => document.querySelector('nav').classList.remove('open'));
+    });
+  </script>
+</body>
 </html>
